@@ -1,30 +1,27 @@
-<details> 
-<summary>
-  
-#### 1. 买卖股票的最佳时机  
-
-</summary>
-  
-  
-  > [!TIP] 123123  
-  > 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
-  > 你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
-  > 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
-
-> [!TIP]
-> 
-> Helpful advice for doing things better or more easily.
-
-
-  ```ts
-  const a = 123;1
-  ```
-</details>
-
 <details>
-<summary open>
+<summary>1. 买卖股票的最佳时机</summary>
 
-## open demo
-</summary>
-This is a default open place.
+---
+
+> 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。  
+> 你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。  
+> 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
+>
+> 
+
+```ts
+/**
+ * 从左侧遍历，保存每次的最大利润，计算每次的左侧最小值
+*/
+function maxProfit(prices: number[]): number {
+    let profit = 0; // 当前最大利润
+    let minPrice = prices[0]; // 左侧最小值
+    for (const p of prices) {
+        profit = Math.max(profit, p - minPrice); // 当前最大利润
+        minPrice = Math.min(minPrice, p); // 当前左侧最小值
+    }
+
+    return profit;
+};
+```
 </details>
